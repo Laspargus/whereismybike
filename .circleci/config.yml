@@ -14,7 +14,7 @@ jobs:
         environment:
           POSTGRES_USER: circleci_user
           POSTGRES_PASSWORD: password
-          POSTGRES_DB: theteachingproject_circleci_db
+          POSTGRES_DB: whereismybike_circleci_db
 
     steps:
       - checkout
