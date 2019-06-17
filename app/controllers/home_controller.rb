@@ -6,9 +6,9 @@ class HomeController < ApplicationController
     response = HTTParty.get('http://api.citybik.es/v2/networks/velib', format: :plain)
     @list = JSON.parse response, symbolize_names: true
     @rest_stations = @list[:network][:stations]
-    
+
     @rest_stations.each do|station|
-      @station = Station.find_by(uid: station[:uid])
+      @station = Station.find_by(uid: station[:id])
 
       if @station.free_bikes != station[:free_bikes]
         @station.update(
