@@ -9,7 +9,6 @@ class HomeController < ApplicationController
 
     @rest_stations.each do|station|
       @station = Station.find_by(uid: station[:id])
-
       if @station.free_bikes != station[:free_bikes]
         @station.update(
           free_bikes: station[:free_bikes], 
@@ -19,7 +18,12 @@ class HomeController < ApplicationController
     end
 
     @stations = Station.where("free_bikes > 0")
-    @stations = Station.near("9 rue Bergère, Paris 75002, France").take(5)
+    if params[:latitude].present?
+      @stations = Station.near([params[:latitude], params[:longitude]]).take(5)
+     else
+      @stations = Station.near("9 rue Bergère, Paris 75002, France").take(5)
+    end
+    
   end
 
   def show
