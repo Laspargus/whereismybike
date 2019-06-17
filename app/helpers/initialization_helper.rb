@@ -1,0 +1,2 @@
+module InitializationHelper
+end
