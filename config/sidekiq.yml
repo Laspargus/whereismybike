@@ -8,5 +8,5 @@ production:
   - mailers
 :schedule:
   stations_update_job:
-    every: 60s
+    every: 120s
     class: StationsUpdateJob

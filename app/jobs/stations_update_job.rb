@@ -18,8 +18,9 @@ class StationsUpdateJob < ApplicationJob
           free_bikes: station[:free_bikes], 
           empty_slots: station[:empty_slots]
         )
-        if @station.update
+        if @station.save
           puts "la station a été mise à jour"
+          puts @station.name
         end
       end
     end
