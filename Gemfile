@@ -41,6 +41,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem  'httparty'
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
 gem 'rails_db', '2.0.4'
+gem  'sidekiq-scheduler'
+
 
 
 group :development, :test do

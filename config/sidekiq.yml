@@ -6,3 +6,7 @@ production:
 :queues:
   - default
   - mailers
+:schedule:
+  stations_update_job:
+    every: 60s
+    class: StationsUpdateJob
