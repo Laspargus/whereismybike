@@ -41,7 +41,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 var marker<%=station.id%> = L.marker([<%=station.latitude%>, <%=station.longitude%>]).addTo(mymap);
 
-marker<%=station.id%>.bindPopup('<b><%=station.name%></b><br>Vélo Libres : <%=station.free_bikes%><br>');
+marker<%=station.id%>.bindPopup('<b><%=station.name%></b><br>Free bikes : <%=station.free_bikes%><br>');
 </script>
 
 <%end%>

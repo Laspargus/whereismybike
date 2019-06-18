@@ -1,32 +1,22 @@
 <section>
-<div class="container mt-5">
-	<div class="row">	
-			<div class="col-9 row">
-				<%= render 'searchbar' %>
-			</div>
-			<div class="col-3" id="loading" style="display:none">
-				<div class="loader">		
+	<div class="container mt-5">
+		<div class="row">	
+				<div class="col-9 row">
+					<%= render 'searchbar' %>
 				</div>
-			</div>
+				<div class="col-3" id="loading" style="display:none">
+					<div class="loader">		
+					</div>
+				</div>
+		</div>
 	</div>
-</div>
 
-<div id="map" class="m-3 p-3">
-<%= render 'map' %>
-</div>
+	<div id="map" class="m-3 p-3">
+		<%= render 'map' %>
+	</div>
 
-
-
-
-<%=@stations.each do|station|%>
-
-<p>
-<%=station[:name]%><br>
-Vélos disponibles : <%=station[:free_bikes]%><br>
-Emplacements libres : <%=station[:empty_slots]%>
-</p>
-
-<%end%>
-
+	<div>
+		<%= render 'grid' %>
+	</div>
 </section>
 

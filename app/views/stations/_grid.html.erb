@@ -1,0 +1,24 @@
+<div class="container">
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th scope="col">#</th>
+	      <th scope="col">Station</th>
+	      <th scope="col">Distance</th>
+	      <th scope="col">Free Velib</th>
+	      <th scope="col">Free Slots</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<% @stations.each_with_index do|station, index|%>
+	    <tr>
+	      <th scope="row"><%=index+1%></th>
+	      <td><%=station[:name]%></td>
+	      <td scope="col"><%=distance(station,@latitude,@longitude).round(0)%> meters</td>
+	      <td><%=station[:free_bikes]%></td>
+	      <td><%=station[:empty_slots]%></td>
+	    </tr>
+	  	<%end%>  
+	  </tbody>
+	</table>
+</div>
