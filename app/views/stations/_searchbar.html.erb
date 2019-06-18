@@ -1,4 +1,4 @@
-<div class="col-4">
+<div class="col-4 ">
   <button onclick="getLocation()" class="btn btn-success btn-base-1 z-depth-2-top" type="button">
     Find Velib around me
   </button>
@@ -6,7 +6,7 @@
 
 
 
-  <%= form_tag stations_path, class:"col-8 row", method: :get do %>
+  <%= form_tag stations_path, class:"col-8 row", method: :get, remote: :true do %>
     <div class="form-group col-8">
     	<%= text_field_tag 'location','', class: "form-control", placeholder:"Adress"%>
     </div>

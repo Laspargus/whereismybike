@@ -17,5 +17,11 @@ class StationsController < ApplicationController
       @longitude = '2.346660'
       @stations = Station.near("9 rue Bergère, Paris 75002, France").take(5)
     end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+    
   end
 end
