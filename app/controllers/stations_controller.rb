@@ -3,7 +3,6 @@
 class StationsController < ApplicationController
   def index
     @stations = Station.where("free_bikes > 0")
-
     if params[:latitude].present?
       @latitude = params[:latitude]
       @longitude = params[:longitude]
