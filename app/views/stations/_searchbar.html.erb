@@ -1,0 +1,38 @@
+<div class="col-4">
+  <button onclick="getLocation()" class="btn btn-success btn-base-1 z-depth-2-top" type="button">
+    Find Velib around me
+  </button>
+</div>
+
+
+
+  <%= form_tag stations_path, class:"col-8 row", method: :get do %>
+    <div class="form-group col-8">
+    	<%= text_field_tag 'location','', class: "form-control", placeholder:"Adress"%>
+    </div>
+     <div class="form-group col-4">
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+
+
+
+<script>
+function getLocation() {
+document.getElementById("loading").style.display = "block";
+ 
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(pos) {
+    //You have your locaton here
+      console.log("Latitude: " + pos.coords.latitude +
+        "Longitude: " + pos.coords.longitude);
+
+      window.location.replace("/?latitude=" + pos.coords.latitude +"&longitude=" + pos.coords.longitude);
+    console.log("ca passe") 
+    });
+  } else {
+    console.log("Geolocation is not supported by this browser.");
+  }
+}
+</script>

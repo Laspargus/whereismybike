@@ -1,12 +1,11 @@
 require 'sidekiq-scheduler'
 class StationsUpdateJob < ApplicationJob
  
-   self.queue_adapter = :sidekiq
+  self.queue_adapter = :sidekiq
 
   queue_as :default
 
   def perform(*args)
-    # Do something later
     response = HTTParty.get('http://api.citybik.es/v2/networks/velib', format: :plain)
     @list = JSON.parse response, symbolize_names: true
     @rest_stations = @list[:network][:stations]

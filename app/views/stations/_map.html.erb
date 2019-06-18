@@ -1,0 +1,47 @@
+
+ <div class="container mb-3 mt-3" id="mapid">
+</div>
+
+
+<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+crossorigin=""></script>
+
+
+<script>
+
+var latitude = <%=@latitude%>
+var longitude = <%=@longitude%>
+var mymap = L.map('mapid').setView([latitude, longitude], 16);
+
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+    accessToken: 'pk.eyJ1IjoibGFzcGFyZ3VzIiwiYSI6ImNqdWhlMXIybDB2emUzeW9hczRyYTB6YjYifQ.GNq6iUzyMMRGpL2fR9gOIQ'
+}).addTo(mymap);
+
+</script>
+
+<% if checklatitude %>
+	<script>
+		var circle = L.circle([latitude, longitude], {
+						color: '#FFFFFF',
+						fillColor: '#4285f4',
+						fillOpacity: 0.8,
+						radius: 30
+					}).addTo(mymap);
+	</script>
+<%end%>
+
+
+
+<% @stations.each do |station|%>
+<script>
+
+
+var marker<%=station.id%> = L.marker([<%=station.latitude%>, <%=station.longitude%>]).addTo(mymap);
+
+marker<%=station.id%>.bindPopup('<b><%=station.name%></b><br>Vélo Libres : <%=station.free_bikes%><br>');
+</script>
+
+<%end%>

@@ -2,8 +2,9 @@
 
 Rails.application.routes.draw do
 
-  get 'initialization/index'
-  root 'home#index'
-  resources :homes
+
+  root 'stations#index'
+
+  resources :stations
   
 end
