@@ -38,7 +38,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'geocoder', '~> 1.3', '>= 1.3.7'
+gem 'geocoder', '~> 1.6'
 gem 'httparty'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'rails_db', '2.0.4'
